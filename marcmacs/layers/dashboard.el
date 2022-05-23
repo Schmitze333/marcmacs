@@ -15,3 +15,6 @@
   (setq dashboard-set-file-icons t)
   :config
   (dashboard-setup-startup-hook))
+
+;; Show Dashboard screen
+(dashboard-refresh-buffer)

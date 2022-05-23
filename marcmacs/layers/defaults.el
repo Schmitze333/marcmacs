@@ -26,9 +26,10 @@
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
-;; Default Font
+;;; Default Font
+;; Source Code Pro-12
 (add-to-list 'default-frame-alist
-       '(font . "Source Code Pro-12"))
+       '(font . "Menlo-12"))
 
 ;; Line numbers
 (global-display-line-numbers-mode t)
@@ -46,3 +47,11 @@
 	  (which-function-mode 1)
 	  (yafolding-mode)
 	  (setq show-trailing-whitespace t)))
+
+;; Exec-path-from-shell
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
+;; EWW
+(setq eww-search-prefix "https://duckduckgo.com/?q=")
