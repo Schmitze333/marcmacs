@@ -1,5 +1,14 @@
 ;;;; Basic stuff for all programming ;;;;
 
+;; Set up some basics
+(add-hook 'prog-mode-hook (lambda()
+	  (electric-pair-mode)
+	  (electric-quote-mode)
+	  (show-paren-mode)
+	  (which-function-mode 1)
+	  (yafolding-mode)
+	  (setq show-trailing-whitespace t)))
+
 ;; add-node-modules-path
 (use-package add-node-modules-path
   :hook (ruby-mode web-mode))

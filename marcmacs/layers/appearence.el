@@ -1,5 +1,18 @@
 ;;;; Configure the Appearence of Emacs ;;;;
 
+;;; Default Font
+;; Source Code Pro-12
+(add-to-list 'default-frame-alist
+       '(font . "Menlo-12"))
+
+;; Line numbers
+(global-display-line-numbers-mode t)
+(column-number-mode)
+
+;; Highlight current line
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#600885")
+
 ;;; Doom Themes
 (use-package doom-themes
   :ensure t
