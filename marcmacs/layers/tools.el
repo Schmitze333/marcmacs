@@ -3,8 +3,7 @@
   :defer t)
 
 ;;;; IEdit ;;;;
-(use-package iedit
-  :defer t)
+(use-package iedit)
 
 ;;;; Restclient ;;;;
 (use-package restclient

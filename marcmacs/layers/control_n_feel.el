@@ -62,7 +62,6 @@
   (winum-mode))
 
 (use-package popwin
-  :defer t
   :config
   (global-set-key (kbd "s-j") popwin:keymap)
   (push '(compilation-mode :noselect t :position bottom :height 22) popwin:special-display-config)
