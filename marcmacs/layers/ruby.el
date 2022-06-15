@@ -27,3 +27,6 @@
   :config
   (rspec-install-snippets)
   (setq compilation-scroll-output t))
+
+(use-package minitest
+  :defer t)
