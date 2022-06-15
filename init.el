@@ -26,9 +26,25 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
-(setq marcmacs-layers '("defaults" "macos" "emacs_tweaks" "appearence" "custom_function"
-			"completion_framework" "control_n_feel" "shells" "projects" "git"
-			"develop_foundation" "ruby" "front_end" "org" "dashboard" "elixir" "tools"
+(setq marcmacs-layers '(
+			"defaults"
+			"macos"
+			"emacs_tweaks"
+			"appearence"
+			"custom_function"
+			"completion_framework"
+			"control_n_feel"
+			"shells"
+			"projects"
+			"git"
+			"develop_foundation"
+			"ruby"
+			"front_end"
+			"org"
+			"dashboard"
+			"elixir"
+			"tools"
+			"elfeed"
 			"entertainment"))
 
 (defun marcmacs--load-layer (layer-name)
@@ -36,8 +52,8 @@
   (message "Load layer %s" layer-name)
   (load (expand-file-name (concat layer-name ".el") marcmacs--layer-dir)))
 
-(dolist (layer-name marcmacs-layers)
-  (marcmacs--load-layer layer-name))
+(dolist (layer marcmacs-layers)
+  (marcmacs--load-layer layer))
 
 ;;; Load Layers
 ;; (load (expand-file-name "defaults.el" marcmacs--layer-dir))
