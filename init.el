@@ -28,7 +28,7 @@
 
 (setq marcmacs-layers '(
 			"defaults"
-			"macos"
+			"linux"
 			"emacs_tweaks"
 			"appearence"
 			"custom_function"
