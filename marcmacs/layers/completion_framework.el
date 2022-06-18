@@ -7,15 +7,15 @@
   (:map vertico-map ("C-l" . vertico-insert))
   :init (vertico-mode))
 
-(use-package vertico-posframe
-  :after vertico
-  :config
-  (setq vertico-posframe-parameters
-	'((left-fringe . 8)
-	  (right-fringe . 8)
-	  (border-color . "green")
-	  (alpha . 95)))
-  (vertico-posframe-mode 1))
+;; (use-package vertico-posframe
+;;   :after vertico
+;;   :config
+;;   (setq vertico-posframe-parameters
+;; 	'((left-fringe . 8)
+;; 	  (right-fringe . 8)
+;; 	  (border-color . "green")
+;; 	  (alpha . 95)))
+;;   (vertico-posframe-mode 1))
 
 ;; Enable richer annotations using the Marginalia package
 (use-package marginalia
@@ -138,7 +138,7 @@
 
   ;; Recommended: Enable Corfu globally.
   ;; This is recommended since dabbrev can be used globally (M-/).
-  :init
+  :config
   (corfu-global-mode))
 
 (use-package dabbrev

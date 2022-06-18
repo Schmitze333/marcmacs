@@ -3,7 +3,7 @@
 ;;; Default Font
 ;; Source Code Pro-12
 (add-to-list 'default-frame-alist
-       '(font . "Menlo-12"))
+       '(font . "Source Code Pro"))
 
 ;; Line numbers
 (global-display-line-numbers-mode t)
