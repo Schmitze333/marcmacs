@@ -20,9 +20,11 @@
   :after projectile)
 
 (use-package perspective
-  :bind ("C-x C-b" . persp-list-buffers)   ; or use a nicer switcher, see below
   :custom
   (persp-mode-prefix-key (kbd "s-l"))
+  :bind (("C-x C-b" . persp-list-buffers)
+	 :map perspective-map
+	 ("s-l" . persp-switch-last))   ; or use a nicer switcher, see below
   :config
   (persp-mode))
 
