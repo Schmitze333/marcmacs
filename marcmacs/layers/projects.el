@@ -21,6 +21,8 @@
 
 (use-package perspective
   :bind ("C-x C-b" . persp-list-buffers)   ; or use a nicer switcher, see below
+  (:map perspective-map
+	("s-l" . persp-switch-last))
   :custom
   (persp-mode-prefix-key (kbd "s-l"))
   :config

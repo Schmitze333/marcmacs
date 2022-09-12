@@ -40,11 +40,13 @@
 			"develop_foundation"
 			"ruby"
 			"front_end"
+			"cpp"
 			"org"
 			"dashboard"
 			"elixir"
 			"tools"
 			"elfeed"
+			"lilypond"
 			"entertainment"))
 
 (defun marcmacs--load-layer (layer-name)

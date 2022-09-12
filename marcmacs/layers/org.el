@@ -1,8 +1,8 @@
 ;;;; Org-Mode ;;;;
 (use-package org-modern
-  :after org-mode
+  :hook (org-mode . org-modern-mode)
   :config
-  (add-hook 'org-mode-hook #'org-modern-mode)
+  ;; (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
   (org-modern-mode))
 

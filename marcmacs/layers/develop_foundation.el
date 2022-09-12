@@ -1,5 +1,11 @@
 ;;;; Basic stuff for all programming ;;;;
 
+;;; Prerequisites ;;;
+;; Go:
+;; - go install golang.org/x/tools/cmd/goimports@latest
+;; - go install golang.org/x/tools/gopls@latest
+;; - asdf reshim golang
+
 ;; Set up some basics
 (add-hook 'prog-mode-hook (lambda()
 	  (electric-pair-mode)
@@ -58,9 +64,19 @@
 					;; (add-hook 'flymake-diagnostic-functions
 						  ;; 'eglot-flymake-backend nil t)))
   ;; (add-hook 'ruby-mode-hook 'eglot-ensure)
-  (add-to-list 'eglot-server-programs '(web-mode . ("typescript-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs
+	       '(web-mode . ("typescript-language-server" "--stdio")))
   (add-hook 'ruby-mode-hook (lambda ()
 			      (setq eglot-stay-out-of '(flymake))
 			      (eglot-ensure)))
   (add-hook 'web-mode-hook 'eglot-ensure)
-  (add-hook 'go-mode-hook 'eglot-ensure))
+  (add-hook 'go-mode-hook 'eglot-ensure)
+  (add-hook 'c++-mode-hook (lambda ()
+			     (setq eglot-stay-out-of '(flymake))
+			     (eglot-ensure))))
+
+(use-package flycheck
+  :custom
+  (flycheck-gcc-language-standard "c++14")
+  (flycheck-clang-language-standard "c++14")
+  :hook (c++-mode . flycheck-mode))

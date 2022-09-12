@@ -6,7 +6,10 @@
   :bind
   (("C-." . embark-act)         ;; pick some comfortable binding
    ;; ("C-;" . embark-dwim)        ;; good alternative: M-.
-   ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
+   ("C-h B" . embark-bindings)
+   (:map embark-identifier-map ("p" . projectile-ag)
+	 ("." . projectile-ripgrep))
+   (:map embark-region-map ("." . projectile-ripgrep))) ;; alternative for `describe-bindings'
   :init
   ;; Optionally replace the key help with a completing-read interface
   (setq prefix-help-command #'embark-prefix-help-command)
@@ -50,6 +53,9 @@
 (use-package yafolding
   :defer t)
 
+(use-package duplicate-thing
+  :bind ("M-n" . #'duplicate-thing))
+
 (use-package winum
   :bind
   ("M-1". #'winum-select-window-1)
@@ -68,6 +74,10 @@
   (push '("*rspec-compilation*" :noselect t :position bottom :height 22) popwin:special-display-config)
   (push '("*vterm" :regexp t :stick t :position bottom :height 24) popwin:special-display-config)
   (popwin-mode))
+
+;; transpose spit windows
+(use-package transpose-frame
+  :bind ("C-x %". #'transpose-frame))
 
 ;; yas-snippets
 (use-package yasnippet

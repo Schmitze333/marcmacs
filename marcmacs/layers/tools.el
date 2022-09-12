@@ -2,6 +2,10 @@
 (use-package ag
   :defer t)
 
+;;;; Rg ;;;;
+(use-package rg
+  :defer t)
+
 ;;;; IEdit ;;;;
 (use-package iedit)
 

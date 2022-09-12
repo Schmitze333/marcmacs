@@ -11,13 +11,19 @@
   (web-mode-code-indent-offset 2)
   (web-mode-css-indent-offset 2)
   (web-mode-auto-quote-style 2)
+  :config
+  (require 'flycheck)
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+
+  :hook
+  (web-mode . flycheck-mode)
   :commands web-mode)
+
+(use-package eslint-fix)
 
 
 (use-package flymake-eslint
-  :custom
-  (add-hook 'web-mode-hook (lambda ()
-			     (flymake-eslint-enable))))
+  :defer t)
 
 (use-package jest
   :after (web-mode)

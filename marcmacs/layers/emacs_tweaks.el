@@ -14,9 +14,18 @@
       (setq browse-url-browser-function #'xwidget-webkit-browse-url))
 
   :bind
+  ;; tab usage
+  ("M-g M-t" . #'tab-next)
+  ("M-g M-b" . #'tab-previous)
+
+  ;; text expansion
   ("s-/" . #'hippie-expand)
+
+  ;; buffer management
   ("s-," . #'previous-buffer)
   ("s-." . #'next-buffer)
+
+  ;; google
   ("C-x G" . #'ms/google-it))
 
 ;;; Dired

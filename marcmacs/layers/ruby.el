@@ -3,6 +3,7 @@
 (use-package ruby-end
   :defer t)
 
+
 (use-package flymake-ruby
   :hook (ruby-mode . flymake-ruby-load))
 
@@ -24,6 +25,10 @@
   :init
   (add-hook 'compilation-filter-hook #'inf-ruby-auto-enter)
   (add-hook 'rspec-before-verification-hook #'save-some-buffers)
+  :bind
+  (("C-, C-," . rspec-verify-single)
+   ("C-, l" . rspec-rerun)
+   ("C-, ," . rspec-verify))
   :config
   (rspec-install-snippets)
   (setq compilation-scroll-output t))
