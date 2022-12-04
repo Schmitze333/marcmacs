@@ -72,6 +72,8 @@
   (add-hook 'web-mode-hook 'eglot-ensure)
   (add-hook 'go-mode-hook 'eglot-ensure)
   (add-hook 'c++-mode-hook (lambda ()
+			     (setq eglot-stay-out-of '(flymake))))
+  (add-hook 'rust-mode-hook (lambda ()
 			     (setq eglot-stay-out-of '(flymake))
 			     (eglot-ensure))))
 
