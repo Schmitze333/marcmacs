@@ -34,6 +34,7 @@
 			"custom_function"
 			"completion_framework"
 			"control_n_feel"
+			"devops"
 			"shells"
 			"projects"
 			"git"
@@ -41,12 +42,15 @@
 			"ruby"
 			"front_end"
 			"cpp"
+			"go"
+			"rust"
 			"org"
 			"dashboard"
 			"elixir"
 			"tools"
 			"elfeed"
 			"lilypond"
+			"supercollider"
 			"entertainment"))
 
 (defun marcmacs--load-layer (layer-name)
