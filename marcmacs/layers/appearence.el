@@ -41,3 +41,12 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package highlight-indentation)
+
+(use-package golden-ratio
+  :config
+  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-1)
+  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-2)
+  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-3)
+  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-4)
+  :custom
+  (golden-ratio-mode t))
