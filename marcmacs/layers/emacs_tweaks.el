@@ -13,6 +13,9 @@
   (if (fboundp 'xwidget-webkit-browse-url)
       (setq browse-url-browser-function #'xwidget-webkit-browse-url))
 
+  :custom
+  (winner-mode)
+
   :bind
   ;; tab usage
   ("M-g M-t" . #'tab-next)
@@ -26,7 +29,9 @@
   ("s-." . #'next-buffer)
 
   ;; google
-  ("C-x G" . #'ms/google-it))
+  ("C-x G" . #'ms/google-it)
+  ("C-c h" . #'winner-undo)
+  ("C-c l" . #'winner-redo))
 
 ;;; Dired
 (use-package dired
