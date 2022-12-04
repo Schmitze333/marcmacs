@@ -8,8 +8,8 @@
    ;; ("C-;" . embark-dwim)        ;; good alternative: M-.
    ("C-h B" . embark-bindings)
    (:map embark-identifier-map ("p" . projectile-ag)
-	 ("." . projectile-ripgrep))
-   (:map embark-region-map ("." . projectile-ripgrep))) ;; alternative for `describe-bindings'
+	 ("." . consult-ripgrep))
+   (:map embark-region-map ("." . consult-ripgrep))) ;; alternative for `describe-bindings'
   :init
   ;; Optionally replace the key help with a completing-read interface
   (setq prefix-help-command #'embark-prefix-help-command)
@@ -72,6 +72,7 @@
   (global-set-key (kbd "s-j") popwin:keymap)
   (push '(compilation-mode :noselect t :position bottom :height 22) popwin:special-display-config)
   (push '("*rspec-compilation*" :noselect t :position bottom :height 22) popwin:special-display-config)
+  (push '("*Go Test*" :noselect t :position bottom :height 22) popwin:special-display-config)
   (push '("*vterm" :regexp t :stick t :position bottom :height 24) popwin:special-display-config)
   (popwin-mode))
 
