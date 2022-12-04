@@ -1,7 +1,19 @@
 ;;;; Shell Stuff ;;;;
 
+(use-package with-editor)
+
 (use-package vterm
-  :defer t)
+  :after with-editor
+  :defer t
+  :init
+  (add-hook 'vterm-mode-hook 'with-editor-export-editor))
+
+(use-package eshell
+  :after with-editor
+  :init
+  (add-hook 'eshell-mode-hook 'with-editor-export-editor)
+  :custom
+  (eshell-scroll-show-maximum-output nil))
 
 (use-package eshell-git-prompt
   :after eshell
