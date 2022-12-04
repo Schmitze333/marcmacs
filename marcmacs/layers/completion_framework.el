@@ -42,6 +42,8 @@
 
 ;;; Consult
 (use-package consult
+  :init
+  (require 'em-hist) ;; needed for the eshell history map
   ;; Replace bindings. Lazily loaded due by `use-package'.
   :bind (;; C-c bindings (mode-specific-map)
 	 ;; ("C-c h" . consult-history)
@@ -89,7 +91,13 @@
 	 ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
 	 ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
 	 ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
-	 ("M-s L" . consult-line-multi))           ;; needed by consult-line to detect isearch
+	 ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
+
+	 :map shell-mode-map
+	 ("M-r" . consult-history)
+
+	 :map eshell-hist-mode-map
+	 ("M-r" . consult-history))
 
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :init
