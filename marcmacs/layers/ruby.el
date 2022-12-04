@@ -23,12 +23,14 @@
 (use-package rspec-mode
   :hook (ruby-mode)
   :init
+  (defun set-rspec-shortcuts ()
+    (message "Setting RSpec shortcuts...")
+    (global-set-key (kbd "C-, C-,") #'rspec-verify-single)
+    (global-set-key (kbd "C-, l") #'rspec-rerun)
+    (global-set-key (kbd "C-, ,") #'rspec-verify))
+  (add-hook 'rspec-mode-hook #'set-rspec-shortcuts)
   (add-hook 'compilation-filter-hook #'inf-ruby-auto-enter)
   (add-hook 'rspec-before-verification-hook #'save-some-buffers)
-  :bind
-  (("C-, C-," . rspec-verify-single)
-   ("C-, l" . rspec-rerun)
-   ("C-, ," . rspec-verify))
   :config
   (rspec-install-snippets)
   (setq compilation-scroll-output t))
