@@ -65,7 +65,8 @@
 						  ;; 'eglot-flymake-backend nil t)))
   ;; (add-hook 'ruby-mode-hook 'eglot-ensure)
   (add-to-list 'eglot-server-programs
-	       '(web-mode . ("typescript-language-server" "--stdio")))
+	       '(
+		 (web-mode . ("typescript-language-server" "--stdio"))))
   (add-hook 'ruby-mode-hook (lambda ()
 			      (setq eglot-stay-out-of '(flymake))
 			      (eglot-ensure)))

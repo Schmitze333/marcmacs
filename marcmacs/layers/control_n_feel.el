@@ -1,4 +1,10 @@
 ;;;; Controls above completion ;;;;
+(use-package avy
+  :bind
+  (("M-g j" . #'avy-goto-char-timer)
+   ("M-g g" . #'avy-goto-word-1)
+   ("M-g c" . #'avy-copy-line)
+   ("M-g r" . #'avy-copy-region)))
 
 (use-package embark
   :commands embark-act
@@ -8,7 +14,8 @@
    ;; ("C-;" . embark-dwim)        ;; good alternative: M-.
    ("C-h B" . embark-bindings)
    (:map embark-identifier-map ("p" . projectile-ag)
-	 ("." . consult-ripgrep))
+	 ("." . consult-ripgrep)
+	 ("," . projectile-ripgrep))
    (:map embark-region-map ("." . consult-ripgrep))) ;; alternative for `describe-bindings'
   :init
   ;; Optionally replace the key help with a completing-read interface
@@ -51,7 +58,9 @@
   (which-key-posframe-mode))
 
 (use-package yafolding
-  :defer t)
+  :defer t
+  :hook
+  (prog-mode-hook . yafolding-mode))
 
 (use-package duplicate-thing
   :bind ("M-n" . #'duplicate-thing))
@@ -67,14 +76,14 @@
   (setq winum-auto-assign-0-to-minibuffer t)
   (winum-mode))
 
-(use-package popwin
-  :config
-  (global-set-key (kbd "s-j") popwin:keymap)
-  (push '(compilation-mode :noselect t :position bottom :height 22) popwin:special-display-config)
-  (push '("*rspec-compilation*" :noselect t :position bottom :height 22) popwin:special-display-config)
-  (push '("*Go Test*" :noselect t :position bottom :height 22) popwin:special-display-config)
-  (push '("*vterm" :regexp t :stick t :position bottom :height 24) popwin:special-display-config)
-  (popwin-mode))
+;; (use-package popwin
+;;   :config
+;;   (global-set-key (kbd "s-j") popwin:keymap)
+;;   (push '(compilation-mode :noselect t :position bottom :height 22) popwin:special-display-config)
+;;   (push '("*rspec-compilation*" :noselect t :position bottom :height 22) popwin:special-display-config)
+;;   (push '("*Go Test*" :noselect t :position bottom :height 22) popwin:special-display-config)
+;;   (push '("*vterm" :regexp t :stick t :position bottom :height 24) popwin:special-display-config)
+;;   (popwin-mode))
 
 ;; transpose spit windows
 (use-package transpose-frame

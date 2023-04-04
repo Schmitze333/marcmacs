@@ -65,11 +65,12 @@
 	 ;; M-g bindings (goto-map)
 	 ("M-g e" . consult-compile-error)
 	 ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
-	 ("M-g g" . consult-goto-line)             ;; orig. goto-line
+	 ;; ("M-g g" . consult-goto-line)             ;; orig. goto-line
 	 ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
 	 ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
 	 ("M-g m" . consult-mark)
 	 ("M-g k" . consult-global-mark)
+	 ("M-g h" . consult-history)
 	 ("M-g i" . consult-imenu)
 	 ("M-g I" . consult-imenu-multi)
 	 ("M-g T" . consult-theme)
@@ -92,17 +93,9 @@
 	 ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
 	 ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
 	 ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
-
-	 :map shell-mode-map
-	 ("M-r" . consult-history)
-
-	 :map eshell-hist-mode-map
-	 ("M-r" . consult-history))
+	 )
 
   :hook (completion-list-mode . consult-preview-at-point-mode)
-  :init
-  ;; Optionally replace `completing-read-multiple' with an enhanced version.
-  (advice-add #'completing-read-multiple :override #'consult-completing-read-multiple)
   :config
 
   ;; :preview-key on a per-command basis using the `consult-customize' macro.
@@ -141,7 +134,7 @@
   ;; mapping some keys
   :bind
   (:map corfu-map
-	("C-l". corfu-insert)
+	("C-l" . corfu-insert)
 	("C-SPC" . corfu-insert-separator))
 
   ;; Recommended: Enable Corfu globally.
@@ -165,6 +158,7 @@
 	 ("C-c p s" . cape-symbol)
 	 ("C-c p a" . cape-abbrev)
 	 ("C-c p i" . cape-ispell)
+	 ("C-c p h" . cape-history)
 	 ("C-c p l" . cape-line)
 	 ("C-c p w" . cape-dict)
 	 ("C-c p \\" . cape-tex)
@@ -182,6 +176,7 @@
   (add-to-list 'completion-at-point-functions #'cape-dict)
   (add-to-list 'completion-at-point-functions #'cape-symbol)
   (add-to-list 'completion-at-point-functions #'cape-line)
+  (add-to-list 'completion-at-point-functions #'cape-history)
   ;;(add-to-list 'completion-at-point-functions #'cape-sgml)
   ;;(add-to-list 'completion-at-point-functions #'cape-rfc1345)
   ;;(add-to-list 'completion-at-point-functions #'cape-abbrev)

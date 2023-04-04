@@ -25,3 +25,20 @@
 (defun colorize-compilation-buffer ()
   (ansi-color-apply-on-region compilation-filter-start (point)))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+
+;; Shell improvements ;;
+(defun my-shell-mode-hook ()
+  (message "Running shell-mode-hook: my-shell-mode-hook")
+  (setq comint-input-ring-size 10000)
+  (setq comint-input-ring-file-name "~/.zsh_history")
+  (comint-read-input-ring t))
+
+(add-hook 'shell-mode-hook 'my-shell-mode-hook)
+(add-hook 'shell-mode-hook (lambda () (goto-address-mode)))
+(add-hook 'shell-mode-hook #'compilation-shell-minor-mode)
+(add-hook 'shell-mode-hook #'with-editor-export-editor)
+(setq history-delete-duplicates t)
+
+;;; Source .zshrc also for asynchronous shell commands
+(setq shell-command-switch "-ic")

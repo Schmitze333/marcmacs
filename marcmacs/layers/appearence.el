@@ -11,7 +11,21 @@
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#600885")
+
+
+;; Highlight line after jumps
+;; stolen from: https://karthinks.com/software/batteries-included-with-emacs/
+(defun pulse-line (&rest _)
+      "Pulse the current line."
+      (pulse-momentary-highlight-one-line (point)))
+
+(dolist (command '(scroll-up-command
+		   scroll-down-command
+		   recenter-top-bottom
+		   move-to-window-line-top-bottom
+		   move-to-window-line
+		   other-window))
+  (advice-add command :after #'pulse-line))
 
 ;;; Doom Themes
 (use-package doom-themes
@@ -20,7 +34,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
 	doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-xcode t) ; Alternatives: doom-henna
+  (load-theme 'doom-monokai-machine t) ; Alternatives: doom-henna
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -30,11 +44,10 @@
   (doom-themes-org-config))
 
 ;;; Modeline
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :custom (doom-modeline-height 1))
+;; (use-package doom-modeline) <<-- currently buggy!!!
 
-;; All-the-icons
+
+;; ;; All-the-icons
 (use-package all-the-icons)
 
 (use-package rainbow-delimiters
@@ -48,5 +61,6 @@
   (add-to-list 'golden-ratio-extra-commands 'winum-select-window-2)
   (add-to-list 'golden-ratio-extra-commands 'winum-select-window-3)
   (add-to-list 'golden-ratio-extra-commands 'winum-select-window-4)
+  (golden-ratio-adjust 0.85)
   :custom
   (golden-ratio-mode t))

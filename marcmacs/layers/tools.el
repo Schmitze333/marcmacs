@@ -113,3 +113,15 @@
   :bind ("C-x T" . google-translate-query-translate))
 
 
+;;;; Vale
+(add-to-list 'load-path "/Users/marcschmitz/vale/flymake-vale/")
+
+(require 'flymake-vale)
+
+(add-hook 'text-mode-hook #'flymake-vale-load)
+(add-hook 'latex-mode-hook #'flymake-vale-load)
+(add-hook 'org-mode-hook #'flymake-vale-load)
+(add-hook 'markdown-mode-hook #'flymake-vale-load)
+(add-hook 'message-mode-hook #'flymake-vale-load)
+
+(add-hook 'org-mode-hook #'flymake-mode)

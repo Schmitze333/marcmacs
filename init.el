@@ -51,7 +51,8 @@
 			"elfeed"
 			"lilypond"
 			"supercollider"
-			"entertainment"))
+			"entertainment"
+			))
 
 (defun marcmacs--load-layer (layer-name)
   "Loads a MarcMacs layer"
@@ -61,25 +62,7 @@
 (dolist (layer marcmacs-layers)
   (marcmacs--load-layer layer))
 
-;;; Load Layers
-;; (load (expand-file-name "defaults.el" marcmacs--layer-dir))
-;; (load (expand-file-name "macos.el" marcmacs--layer-dir))
-;; (load (expand-file-name "emacs_tweaks.el" marcmacs--layer-dir))
-;; (load (expand-file-name "appearence.el" marcmacs--layer-dir))
-;; (load (expand-file-name "custom_function.el" marcmacs--layer-dir))
-;; (load (expand-file-name "completion_framework.el" marcmacs--layer-dir))
-;; (load (expand-file-name "control_n_feel.el" marcmacs--layer-dir))
-;; (load (expand-file-name "shells.el" marcmacs--layer-dir))
-;; (load (expand-file-name "projects.el" marcmacs--layer-dir))
-;; (load (expand-file-name "git.el" marcmacs--layer-dir))
-;; (load (expand-file-name "develop_foundation.el" marcmacs--layer-dir))
-;; (load (expand-file-name "ruby.el" marcmacs--layer-dir))
-;; (load (expand-file-name "org.el" marcmacs--layer-dir))
-;; (load (expand-file-name "dashboard.el" marcmacs--layer-dir))
-;; (load (expand-file-name "front_end.el" marcmacs--layer-dir))
-;; (load (expand-file-name "elixir.el" marcmacs--layer-dir))
-;; (load (expand-file-name "tools.el" marcmacs--layer-dir))
-;; (load (expand-file-name "entertainment.el" marcmacs--layer-dir))
+;; For some reason this has to done here 🤷‍♂️
+(winner-mode 1)
 
-;; (load (expand-file-name "supercollider.el" marcmacs--layer-dir))
 (provide 'init)

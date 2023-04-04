@@ -2,19 +2,19 @@
 
 (use-package projectile
   :diminish projectile-mode
+  :init
+  (when (file-directory-p "~/develop/ivx")
+    (setq projectile-project-search-path '("~/develop/ivx")))
+  (setq projectile-switch-project-action #'projectile-dired)
   :config
   (projectile-mode)
   :bind
-  ("C-M-j" . projectile-run-vterm)
+  ("C-M-j" . projectile-run-eshell)
   (:map projectile-command-map
 	("s-p". consult-project-buffer)
 	("f" . consult-projectile-find-file))
   :bind-keymap
-  ("s-p" . projectile-command-map)
-  :init
-  (when (file-directory-p "~/develop/ivx")
-    (setq projectile-project-search-path '("~/develop/ivx")))
-  (setq projectile-switch-project-action #'projectile-dired))
+  ("s-p" . projectile-command-map))
 
 (use-package consult-projectile
   :after projectile)
@@ -22,6 +22,7 @@
 (use-package perspective
   :bind ("C-x C-b" . persp-list-buffers)   ; or use a nicer switcher, see below
   (:map perspective-map
+	("l" . persp-switch)
 	("s-l" . persp-switch-last))
   :custom
   (persp-mode-prefix-key (kbd "s-l"))
@@ -32,3 +33,7 @@
 (use-package persp-projectile
   :bind
   (:map projectile-command-map ("l" . #'projectile-persp-switch-project)))
+
+(use-package projectile-speedbar
+  :bind
+  ("M-<f2>" . #'projectile-speedbar-open-current-buffer-in-tree))

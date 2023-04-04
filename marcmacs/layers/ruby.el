@@ -1,7 +1,8 @@
 ;;;; Ruby Layer ;;;;
 
 (use-package ruby-end
-  :defer t)
+  :defer t
+  :hook (ruby-mode))
 
 
 (use-package flymake-ruby

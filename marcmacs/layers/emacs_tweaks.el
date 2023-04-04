@@ -4,17 +4,14 @@
 (use-package emacs
   :init
   ;; TAB cycle if there are only few candidates
-  (setq completion-cycle-threshold 3)
+  (setq completion-cycle-threshold 1)
 
   ;; Enable indentation+completion using the TAB key.
   ;; `completion-at-point' is often bound to M-TAB.
   (setq tab-always-indent 'complete)
   (setq ediff-merge-split-window-function #'split-window-vertically)
-  (if (fboundp 'xwidget-webkit-browse-url)
-      (setq browse-url-browser-function #'xwidget-webkit-browse-url))
-
-  :custom
-  (winner-mode)
+  ;; (if (fboundp 'xwidget-webkit-browse-url)
+  ;;     (setq browse-url-browser-function #'xwidget-webkit-browse-url))
 
   :bind
   ;; tab usage
@@ -30,8 +27,18 @@
 
   ;; google
   ("C-x G" . #'ms/google-it)
+
+  :config
+  (setq tab-width 4)
+  (add-hook 'bookmark-exit-hook 'bookmark-save) ;; save bookmarks when exiting emacs
+  )
+
+
+(use-package winner
+  :bind
   ("C-c h" . #'winner-undo)
   ("C-c l" . #'winner-redo))
+(winner-mode 1)
 
 ;;; Dired
 (use-package dired

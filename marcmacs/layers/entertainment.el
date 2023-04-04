@@ -1,5 +1,8 @@
 ;;;; Entertainment Stuff ;;;;
 
+;;; Reading epub
+(use-package nov)
+
 ;;; Play all sorts of media ;;;
 (use-package mpv)
 (use-package emms

@@ -28,3 +28,8 @@
 (use-package jest
   :after (web-mode)
   :hook (web-mode . jest-minor-mode))
+
+(use-package jest-test-mode
+  :ensure t
+  :commands jest-test-mode
+  :hook (web-mode))
