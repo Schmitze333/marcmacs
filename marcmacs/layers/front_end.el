@@ -21,6 +21,8 @@
 
 (use-package eslint-fix)
 
+(use-package npm
+  :ensure t)
 
 (use-package flymake-eslint
   :defer t)

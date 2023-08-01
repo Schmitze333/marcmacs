@@ -16,8 +16,26 @@
 	  (setq show-trailing-whitespace t)))
 
 ;; add-node-modules-path
-(use-package add-node-modules-path
-  :hook (ruby-mode web-mode))
+(use-package add-node-modules-path)
+
+(use-package prism)
+
+(setq use-package-ensure-function 'quelpa)
+(use-package copilot
+  :ensure t
+  :quelpa (copilot :fetcher github
+                   :repo "zerolfx/copilot.el"
+                   :branch "main"
+                   :files ("dist" "*.el"))
+  :config
+  (global-set-key (kbd "s-o") 'copilot-complete)
+  (global-set-key (kbd "s-M-o") 'copilot-panel-complete)
+  (define-key copilot-completion-map (kbd "C-l") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "C-n") 'copilot-next-completion)
+  (define-key copilot-completion-map (kbd "C-p") 'copilot-previous-completion)
+  (define-key copilot-completion-map (kbd "s-i") 'copilot-clear-overlay))
+
+(use-package makefile-executor)
 
 ;; json-mode
 (use-package json-mode

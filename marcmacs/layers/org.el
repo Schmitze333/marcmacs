@@ -23,6 +23,11 @@
 	  ("rb" "Retro bad" item (file+regexp ,(concat org-directory "/captures.org") "** Bad"))
 	  ("rt" "Retro try" item (file+regexp ,(concat org-directory "/captures.org") "** Try"))
 	  ("rp" "Retro puzzles" item (file+regexp ,(concat org-directory "/captures.org") "** Puzzles"))
+	  ("w" "Templates to clock-in/out work")
+	  ("wi" "Clock-in work" plain (file+olp+datetree ,(concat org-directory "/captures.org") "Worktime")
+	   "" :clock-in t :clock-keep t :tree-type "week" :immediate-finish t)
+	  ("wo" "Clock-out work"  plain (file+olp+datetree ,(concat org-directory "/captures.org") "Worktime")
+	   "" :after-finalize (org-clock-out) :tree-type "week" :immediate-finish t)
 	  ("j" "Jounal" entry (file+datetree ,(concat org-directory "/journal.org")) "* %?\nEntered on %U\n  %i\n  %a")
 )))
 

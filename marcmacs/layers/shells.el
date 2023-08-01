@@ -26,15 +26,19 @@
   (ansi-color-apply-on-region compilation-filter-start (point)))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
-
 ;; Shell improvements ;;
-(defun my-shell-mode-hook ()
-  (message "Running shell-mode-hook: my-shell-mode-hook")
+(defun turn-on-comint-history (history-file)
   (setq comint-input-ring-size 10000)
-  (setq comint-input-ring-file-name "~/.zsh_history")
-  (comint-read-input-ring t))
+  (setq comint-input-ring-file-name history-file)
+  (comint-read-input-ring 'silent))
 
-(add-hook 'shell-mode-hook 'my-shell-mode-hook)
+(add-hook 'inf-ruby-mode-hook
+          (lambda ()
+            (turn-on-comint-history "~/.irb_history")))
+
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (turn-on-comint-history (getenv "HISTFILE"))))
 (add-hook 'shell-mode-hook (lambda () (goto-address-mode)))
 (add-hook 'shell-mode-hook #'compilation-shell-minor-mode)
 (add-hook 'shell-mode-hook #'with-editor-export-editor)

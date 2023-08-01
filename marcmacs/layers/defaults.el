@@ -29,7 +29,15 @@
 ;; Exec-path-from-shell
 (use-package exec-path-from-shell
   :config
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "HISTFILE"))
+
+;; For non-(m)elpa packages we need quelpa and quelpa-use-package
+(use-package quelpa)
+(use-package quelpa-use-package)
 
 ;; EWW
 (setq eww-search-prefix "https://duckduckgo.com/?q=")
+
+;; Get BIG history
+(set-variable comint-input-ring-size 5000)

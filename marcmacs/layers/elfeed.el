@@ -11,4 +11,5 @@
 	  ("https://feeds.simplecast.com/7y1CbAbN" maintainable podcast)
 	  ("https://innoq.podigee.io/feed/aac" innoq podcast)
 	  ("https://protesilaos.com/codelog.xml" patros blog)
+	  ("https://systemcrafters.net/rss/news.xml" emacs dawil blog)
 	  )))
