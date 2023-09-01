@@ -43,6 +43,8 @@
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
+(use-package creamsody-theme)
+
 ;;; Modeline
 ;; (use-package doom-modeline) <<-- currently buggy!!!
 

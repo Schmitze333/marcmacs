@@ -15,7 +15,9 @@
 
 ;;;; Groovy ;;;;
 (use-package groovy-mode
-  :defer t)
+  :defer t
+  :config
+  (setq groovy-indent-offset 2))
 
 ;;;; Dockerfile ;;;;
 (use-package dockerfile-mode

@@ -1,4 +1,4 @@
-;;;; Setting some defaults in Emacs ;;;;
+;;; Setting some defaults in Emacs ;;;;
 
 (setq inhibit-startup-message t)
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
@@ -38,6 +38,3 @@
 
 ;; EWW
 (setq eww-search-prefix "https://duckduckgo.com/?q=")
-
-;; Get BIG history
-(set-variable comint-input-ring-size 5000)

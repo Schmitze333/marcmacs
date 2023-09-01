@@ -27,6 +27,10 @@
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 ;; Shell improvements ;;
+
+;; Get BIG history
+(set-variable 'comint-input-ring-size 5000)
+
 (defun turn-on-comint-history (history-file)
   (setq comint-input-ring-size 10000)
   (setq comint-input-ring-file-name history-file)

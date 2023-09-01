@@ -48,6 +48,7 @@
 			"dashboard"
 			"elixir"
 			"tools"
+			"totp"
 			"elfeed"
 			"lilypond"
 			"supercollider"
