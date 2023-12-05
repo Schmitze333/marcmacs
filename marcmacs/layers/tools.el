@@ -19,6 +19,10 @@
   :config
   (setq groovy-indent-offset 2))
 
+(use-package vcl-mode
+  :defer t
+  )
+
 ;;;; Dockerfile ;;;;
 (use-package dockerfile-mode
   :defer t)

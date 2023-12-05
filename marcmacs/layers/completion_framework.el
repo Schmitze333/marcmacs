@@ -7,15 +7,15 @@
   (:map vertico-map ("C-l" . vertico-insert))
   :init (vertico-mode))
 
-(use-package vertico-posframe
-  :after vertico
-  :config
-  (setq vertico-posframe-parameters
-	'((left-fringe . 8)
-	  (right-fringe . 8)
-	  (border-color . "green")
-	  (alpha . 95)))
-  (vertico-posframe-mode 1))
+;; (use-package vertico-posframe
+;;   :after vertico
+;;   :config
+;;   (setq vertico-posframe-parameters
+;; 	'((left-fringe . 8)
+;; 	  (right-fringe . 8)
+;; 	  (border-color . "green")
+;; 	  (alpha . 95)))
+;;   (vertico-posframe-mode 1))
 
 ;; Enable richer annotations using the Marginalia package
 (use-package marginalia
@@ -104,7 +104,7 @@
    consult-ripgrep consult-git-grep consult-grep
    consult-bookmark consult-recent-file consult-xref
    consult--source-recent-file consult--source-project-recent-file consult--source-bookmark
-   :preview-key (kbd "M-."))
+   :preview-key "M-.")
 
   ;;;; 2. projectile.el (projectile-project-root)
   (autoload 'projectile-project-root "projectile")

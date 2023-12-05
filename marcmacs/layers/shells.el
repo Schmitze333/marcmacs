@@ -42,7 +42,8 @@
 
 (add-hook 'shell-mode-hook
           (lambda ()
-            (turn-on-comint-history (getenv "HISTFILE"))))
+            (turn-on-comint-history (getenv "HISTFILE"))
+	    (setq comint-scroll-show-maximum-output nil)))
 (add-hook 'shell-mode-hook (lambda () (goto-address-mode)))
 (add-hook 'shell-mode-hook #'compilation-shell-minor-mode)
 (add-hook 'shell-mode-hook #'with-editor-export-editor)

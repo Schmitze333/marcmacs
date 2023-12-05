@@ -3,8 +3,8 @@
 ;;; Initialize package sources
 (require 'package)
 (setq package-archives '(("stable-melpa" . "https://stable.melpa.org/packages/")
-       ("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
+			 ("melpa" . "https://melpa.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			 ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
@@ -43,6 +43,7 @@
 			"front_end"
 			"cpp"
 			"go"
+			"python"
 			"rust"
 			"org"
 			"dashboard"
@@ -63,7 +64,7 @@
 (dolist (layer marcmacs-layers)
   (marcmacs--load-layer layer))
 
-;; For some reason this has to done here 🤷‍♂️
+;; For some reason this has to be done here 🤷‍♂️
 (winner-mode 1)
 
 (provide 'init)

@@ -43,6 +43,8 @@
   :config
   (setq js-indent-level 2))
 
+(use-package csv-mode)
+
 ;; Prettier 🧞‍♀️
 (use-package
   prettier-js
@@ -77,11 +79,6 @@
 ;; eglot
 (use-package eglot
   :config
-  ;; (setq eglot-stay-out-of '(flymake))
-  ;; (add-hook 'eglot--managed-mode-hook (lambda ()
-					;; (add-hook 'flymake-diagnostic-functions
-						  ;; 'eglot-flymake-backend nil t)))
-  ;; (add-hook 'ruby-mode-hook 'eglot-ensure)
   (add-to-list 'eglot-server-programs
 	       '(
 		 (web-mode . ("typescript-language-server" "--stdio"))))
@@ -94,7 +91,9 @@
 			     (setq eglot-stay-out-of '(flymake))))
   (add-hook 'rust-mode-hook (lambda ()
 			     (setq eglot-stay-out-of '(flymake))
-			     (eglot-ensure))))
+			     (eglot-ensure)))
+  (add-hook 'python-mode-hook (lambda ()
+				(eglot-ensure))))
 
 (use-package flycheck
   :custom

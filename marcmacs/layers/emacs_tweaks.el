@@ -46,4 +46,8 @@
   :bind
   (("M-g d" . dired-jump)
    (:map dired-mode-map
-   ("-" . dired-up-directory))))
+	 ("-" . dired-up-directory)
+	 ("E" . emms-add-dired))))
+
+;;; Hydra
+(use-package hydra)

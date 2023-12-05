@@ -55,7 +55,10 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package highlight-indentation)
+(use-package highlight-indentation
+  :config
+  (set-face-background 'highlight-indentation-face "#e3e3d3")
+  (set-face-background 'highlight-indentation-current-column-face "#c3b3b3"))
 
 (use-package golden-ratio
   :config

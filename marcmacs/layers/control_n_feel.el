@@ -48,19 +48,21 @@
   (which-key-idle-delay 0.5)
   :init (which-key-mode))
 
-(use-package which-key-posframe
-  :after which-key
-  :config
-  (setq which-key-posframe-parameters
-	'((left-fringe . 25)
-	  (right-fringe . 25)
-	  (border-width . 5)))
-  (which-key-posframe-mode))
+;; (use-package which-key-posframe
+;;   :after which-key
+;;   :config
+;;   (setq which-key-posframe-parameters
+;; 	'((left-fringe . 25)
+;; 	  (right-fringe . 25)
+;; 	  (border-width . 5)))
+;;   (which-key-posframe-mode))
 
 (use-package yafolding
   :defer t
   :hook
-  (prog-mode-hook . yafolding-mode))
+  (prog-mode-hook . yafolding-mode)
+  (json-mode-hook . yafolding-mode)
+  (yaml-mode-hook . yafolding-mode))
 
 (use-package duplicate-thing
   :bind ("M-n" . #'duplicate-thing))
