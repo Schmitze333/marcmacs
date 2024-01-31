@@ -73,6 +73,8 @@
   ("M-2". #'winum-select-window-2)
   ("M-3". #'winum-select-window-3)
   ("M-4". #'winum-select-window-4)
+  ("M-5". #'winum-select-window-5)
+  ("M-6". #'winum-select-window-6)
   ("M-0". #'winum-select-window-0)
   :config
   (setq winum-auto-assign-0-to-minibuffer t)

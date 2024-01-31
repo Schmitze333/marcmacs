@@ -5,6 +5,7 @@
 (use-package org
   :config
   (define-key global-map (kbd "C-x j") #'org-capture)
+  (define-key global-map (kbd "s-a") #'org-agenda)
   ;; active Babel languages
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -16,6 +17,7 @@
   (setq org-directory "~/org")
   (setq org-capture-templates
 	`(
+	  ("g" "GTD-Eingang" entry (file+headline, (concat org-directory "/GTD.org") "Eingang") "** %?")
 	  ("t" "Todo" entry (file+headline ,(concat org-directory "/captures.org") "Inbox") "** TODO %?\n  %i\n  %a")
 	  ("i" "Idea" entry (file+headline ,(concat org-directory "/captures.org") "Ideas") "** 💡: %?\n  %i\n  %a")
 	  ("r" "Template for retrospective stuff")
@@ -28,8 +30,15 @@
 	   "" :clock-in t :clock-keep t :tree-type "week" :immediate-finish t)
 	  ("wo" "Clock-out work"  plain (file+olp+datetree ,(concat org-directory "/captures.org") "Worktime")
 	   "" :after-finalize (org-clock-out) :tree-type "week" :immediate-finish t)
+	  ("wj" "Work-journal"  entry (file+headline ,(concat org-directory "/work.org") "Work items") "** WORK_TODO %? %U\n %i\n %a")
 	  ("j" "Jounal" entry (file+datetree ,(concat org-directory "/journal.org")) "* %?\nEntered on %U\n  %i\n  %a")
-)))
+	  ))
+
+  (setq org-agenda-custom-commands
+	'(
+	  ("w" "Work tasks"
+	   ((todo "WORK_WAITING")
+	    (todo "WORK_TODO"))))))
 
 
 ;; ALWAYS redisplay images when org-babel executed
@@ -80,3 +89,8 @@
 ;; Edit Mermaid files
 (use-package mermaid-mode
   :defer t)
+
+(add-to-list 'load-path (concat user-emacs-directory "el-igo"))
+(with-eval-after-load "org"
+  (require 'igo-org)
+  (igo-org-setup))

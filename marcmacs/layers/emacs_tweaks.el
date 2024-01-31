@@ -47,7 +47,14 @@
   (("M-g d" . dired-jump)
    (:map dired-mode-map
 	 ("-" . dired-up-directory)
-	 ("E" . emms-add-dired))))
+	 ("E" . emms-add-dired)))
+  :config
+  (use-package all-the-icons-dired
+    :hook (dired-mode . all-the-icons-dired-mode)
+    :config (setq all-the-icons-dired-monochrome nil))
+)
+
+
 
 ;;; Hydra
 (use-package hydra)

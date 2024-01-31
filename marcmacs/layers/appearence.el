@@ -60,12 +60,12 @@
   (set-face-background 'highlight-indentation-face "#e3e3d3")
   (set-face-background 'highlight-indentation-current-column-face "#c3b3b3"))
 
-(use-package golden-ratio
-  :config
-  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-1)
-  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-2)
-  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-3)
-  (add-to-list 'golden-ratio-extra-commands 'winum-select-window-4)
-  (golden-ratio-adjust 0.85)
-  :custom
-  (golden-ratio-mode t))
+;; (use-package golden-ratio
+;;   :config
+;;   (add-to-list 'golden-ratio-extra-commands 'winum-select-window-1)
+;;   (add-to-list 'golden-ratio-extra-commands 'winum-select-window-2)
+;;   (add-to-list 'golden-ratio-extra-commands 'winum-select-window-3)
+;;   (add-to-list 'golden-ratio-extra-commands 'winum-select-window-4)
+;;   (golden-ratio-adjust 0.85)
+;;   :custom
+;;   (golden-ratio-mode -1))
