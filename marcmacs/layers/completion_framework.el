@@ -97,6 +97,9 @@
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :config
 
+  ;; add vterm history config
+  (add-to-list 'consult-mode-histories '(vterm-mode comint-input-ring comint-input-ring-index comint-bol))
+
   ;; :preview-key on a per-command basis using the `consult-customize' macro.
   (consult-customize
    consult-theme

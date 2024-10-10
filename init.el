@@ -2,10 +2,10 @@
 
 ;;; Initialize package sources
 (require 'package)
-(setq package-archives '(("stable-melpa" . "https://stable.melpa.org/packages/")
+(setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
+			 ("stable-melpa" . "https://stable.melpa.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")
-			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -43,6 +43,7 @@
 			"front_end"
 			"cpp"
 			"go"
+			"groovy"
 			"python"
 			"rust"
 			"org"

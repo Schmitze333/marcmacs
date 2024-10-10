@@ -14,6 +14,12 @@
   ;;     (setq browse-url-browser-function #'xwidget-webkit-browse-url))
 
   :bind
+  ;; window handling
+  ("s-[" . #'shrink-window-horizontally)
+  ("s-]" . #'enlarge-window-horizontally)
+  ("s-{" . #'shrink-window)
+  ("s-}" . #'enlarge-window)
+  
   ;; tab usage
   ("M-g M-t" . #'tab-next)
   ("M-g M-b" . #'tab-previous)

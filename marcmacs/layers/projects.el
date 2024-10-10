@@ -9,10 +9,15 @@
   :config
   (projectile-mode)
   :bind
-  ("C-M-j" . projectile-run-eshell)
-  (:map projectile-command-map
-	("s-p". consult-project-buffer)
-	("f" . consult-projectile-find-file))
+  (("C-M-j" . projectile-run-eshell)
+   :map projectile-command-map
+   ("s-p". consult-project-buffer)
+   ("f" . consult-projectile-find-file)
+   :map global-map
+   ("M-o s". projectile-run-shell)
+   ("M-o e". projectile-run-eshell)
+   ("M-o v". projectile-run-vterm)
+   )
   :bind-keymap
   ("s-p" . projectile-command-map))
 
