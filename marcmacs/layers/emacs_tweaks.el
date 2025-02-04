@@ -19,17 +19,13 @@
   ("s-]" . #'enlarge-window-horizontally)
   ("s-{" . #'shrink-window)
   ("s-}" . #'enlarge-window)
-  
+
   ;; tab usage
   ("M-g M-t" . #'tab-next)
   ("M-g M-b" . #'tab-previous)
 
   ;; text expansion
   ("s-/" . #'hippie-expand)
-
-  ;; buffer management
-  ("s-," . #'previous-buffer)
-  ("s-." . #'next-buffer)
 
   ;; google
   ("C-x G" . #'ms/google-it)
@@ -55,6 +51,7 @@
 	 ("-" . dired-up-directory)
 	 ("E" . emms-add-dired)))
   :config
+  (setq-default dired-listing-switches "-alh")
   (use-package all-the-icons-dired
     :hook (dired-mode . all-the-icons-dired-mode)
     :config (setq all-the-icons-dired-monochrome nil))

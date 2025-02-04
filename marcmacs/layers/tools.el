@@ -100,6 +100,7 @@
 		    :template "{{ json .Command }}"
 		    :sort nil
 		    :format nil)))
+  (docker-compose-command "docker compose")
   :bind ("s-d" . docker))
 
 ;;;; Format ELisp

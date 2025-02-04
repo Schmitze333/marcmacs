@@ -13,6 +13,7 @@
 	      ("M-3". nil)
 	      ("M-4". nil)
 	      ("M-g". nil)
+	      ("M-y". nil)
 	      ("M-c" . vterm-copy-mode))
   :config
   ;; this function is from http://xahlee.info/emacs/emacs/elisp_read_file_content.html
@@ -29,7 +30,6 @@
     (interactive)
     (vterm-history "~/.config/zsh/.histfile"))
 
-  (define-key vterm-mode-map (kbd "M-g h") 'vterm-history-zsh)
   (add-hook 'vterm-mode-hook 'with-editor-export-editor))
 
 (use-package eshell

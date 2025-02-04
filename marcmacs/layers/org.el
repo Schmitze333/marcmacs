@@ -49,10 +49,10 @@
 ;;; Modern Look & Feel
 (use-package org-modern
   :hook (org-mode . org-modern-mode)
+  :custom
+  (org-modern-star 'replace)
   :config
-  ;; (add-hook 'org-mode-hook #'org-modern-mode)
-  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
-  (org-modern-mode))
+  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
 
 (use-package ox-gfm
   :after org)

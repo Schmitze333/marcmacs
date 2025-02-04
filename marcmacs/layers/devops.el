@@ -14,3 +14,4 @@
 (use-package kubernetes-helm)
 (use-package kubedoc)
 
+(use-package nginx-mode)

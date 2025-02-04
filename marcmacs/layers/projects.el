@@ -14,6 +14,8 @@
    ("s-p". consult-project-buffer)
    ("f" . consult-projectile-find-file)
    :map global-map
+   ("s-," . projectile-previous-project-buffer)
+   ("s-." . projectile-next-project-buffer)
    ("M-o s". projectile-run-shell)
    ("M-o e". projectile-run-eshell)
    ("M-o v". projectile-run-vterm)
