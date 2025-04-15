@@ -9,7 +9,7 @@
 (add-to-list 'default-frame-alist
        '(font . "Menlo-12"))
 
-(load-theme 'modus-operandi-tritanopia)
+(load-theme 'ef-owl)
 
 ;; Show column number in modeline
 (column-number-mode)

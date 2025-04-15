@@ -16,20 +16,6 @@
 	      ("M-y". nil)
 	      ("M-c" . vterm-copy-mode))
   :config
-  ;; this function is from http://xahlee.info/emacs/emacs/elisp_read_file_content.html
-  (defun read-lines-from-files (filePath)
-    "Return a list of lines of a file at filePath."
-    (with-temp-buffer
-      (insert-file-contents filePath)
-      (split-string (buffer-string) "\n" t)))
-
-  (defun vterm-history (histfile)
-    (vterm-send-string (completing-read "Commands: " (read-lines-from-files histfile)) t))
-
-  (defun vterm-history-zsh ()
-    (interactive)
-    (vterm-history "~/.config/zsh/.histfile"))
-
   (add-hook 'vterm-mode-hook 'with-editor-export-editor))
 
 (use-package eshell
@@ -48,8 +34,9 @@
   (defun eshell-handle-ansi-color ()
     (ansi-color-apply-on-region eshell-last-output-start eshell-last-output-end))
 
-  (add-to-list 'eshell-output-filter-functions 'eshell-handle-ansi-color)
-  (add-to-list 'eshell-output-filter-functions 'eshell-colorize-diff-lines)
+  (add-hook 'eshell-preoutput-filter-functions #'ansi-color-apply)
+  (add-to-list 'eshell-output-filter-functions #'eshell-handle-ansi-color)
+  (add-to-list 'eshell-output-filter-functions #'eshell-colorize-diff-lines)
   (eshell-scroll-show-maximum-output nil))
 
 (use-package eshell-git-prompt

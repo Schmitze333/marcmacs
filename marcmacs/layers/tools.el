@@ -34,15 +34,6 @@
 (use-package csv-mode
   :defer t)
 
-;;;; Golang ;;;;
-(use-package go-mode
-  :defer t
-  :init
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook #'gofmt-before-save))
-(use-package gotest
-  :after go-mode)
-
 ;;;; YAML ;;;;
 (use-package yaml-mode
   :defer t)

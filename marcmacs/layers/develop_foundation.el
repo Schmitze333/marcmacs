@@ -11,39 +11,38 @@
 	  (electric-pair-mode)
 	  (electric-quote-mode)
 	  (show-paren-mode)
-	  (which-function-mode 1)
 	  (yafolding-mode)
 	  (setq show-trailing-whitespace t)))
 
 ;; add-node-modules-path
-(use-package add-node-modules-path)
+;; (use-package add-node-modules-path)
 
-(use-package prism)
+;; (use-package prism)
 
-(setq use-package-ensure-function 'quelpa)
-(use-package copilot
-  :ensure t
-  :quelpa (copilot :fetcher github
-                   :repo "zerolfx/copilot.el"
-                   :branch "main"
-                   :files ("dist" "*.el"))
-  :config
-  (global-set-key (kbd "s-o") 'copilot-complete)
-  (global-set-key (kbd "s-M-o") 'copilot-panel-complete)
-  (define-key copilot-completion-map (kbd "C-l") 'copilot-accept-completion)
-  (define-key copilot-completion-map (kbd "C-n") 'copilot-next-completion)
-  (define-key copilot-completion-map (kbd "C-p") 'copilot-previous-completion)
-  (define-key copilot-completion-map (kbd "s-i") 'copilot-clear-overlay))
+;; (setq use-package-ensure-function 'quelpa)
+;; (use-package copilot
+;;   :ensure t
+;;   :quelpa (copilot :fetcher github
+;;                    :repo "zerolfx/copilot.el"
+;;                    :branch "main"
+;;                    :files ("dist" "*.el"))
+;;   :config
+;;   (global-set-key (kbd "s-o") 'copilot-complete)
+;;   (global-set-key (kbd "s-M-o") 'copilot-panel-complete)
+;;   (define-key copilot-completion-map (kbd "C-l") 'copilot-accept-completion)
+;;   (define-key copilot-completion-map (kbd "C-n") 'copilot-next-completion)
+;;   (define-key copilot-completion-map (kbd "C-p") 'copilot-previous-completion)
+;;   (define-key copilot-completion-map (kbd "s-i") 'copilot-clear-overlay))
 
-(use-package makefile-executor)
+;; (use-package makefile-executor)
 
 ;; json-mode
-(use-package json-mode
-  :defer t
-  :config
-  (setq js-indent-level 2))
+;; (use-package json-mode
+;;   :defer t
+;;   :config
+;;   (setq js-indent-level 2))
 
-(use-package csv-mode)
+;; (use-package csv-mode)
 
 ;; Prettier 🧞‍♀️
 (use-package
@@ -77,48 +76,48 @@
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 ;; eglot
-(use-package eglot
-  :config
-  (add-to-list 'eglot-server-programs
-	       '(
-		 (web-mode . ("typescript-language-server" "--stdio"))))
-  (add-hook 'ruby-mode-hook (lambda ()
-			      (setq eglot-stay-out-of '(flymake))
-			      (eglot-ensure)))
-  (add-hook 'web-mode-hook 'eglot-ensure)
-  (add-hook 'go-mode-hook 'eglot-ensure)
-  (add-hook 'c++-mode-hook (lambda ()
-			     (setq eglot-stay-out-of '(flymake))))
-  (add-hook 'rust-mode-hook (lambda ()
-			     (setq eglot-stay-out-of '(flymake))
-			     (eglot-ensure)))
-  (add-hook 'python-mode-hook (lambda ()
-				(eglot-ensure)))
-  :hook
-  (eglot-managed-hook . me/flymake-eslint-enable-maybe))
+;; (use-package eglot
+;;   :config
+;;   (add-to-list 'eglot-server-programs
+;; 	       '(
+;; 		 (web-mode . ("typescript-language-server" "--stdio"))))
+;;   (add-hook 'ruby-mode-hook (lambda ()
+;; 			      (setq eglot-stay-out-of '(flymake))
+;; 			      (eglot-ensure)))
+;;   (add-hook 'web-mode-hook 'eglot-ensure)
+;;   (add-hook 'go-mode-hook 'eglot-ensure)
+;;   (add-hook 'c++-mode-hook (lambda ()
+;; 			     (setq eglot-stay-out-of '(flymake))))
+;;   (add-hook 'rust-mode-hook (lambda ()
+;; 			     (setq eglot-stay-out-of '(flymake))
+;; 			     (eglot-ensure)))
+;;   (add-hook 'python-mode-hook (lambda ()
+;; 				(eglot-ensure)))
+;;   :hook
+;;   (eglot-managed-hook . me/flymake-eslint-enable-maybe))
 
-(use-package flycheck
-  :custom
-  (flycheck-gcc-language-standard "c++14")
-  (flycheck-clang-language-standard "c++14")
-  :hook (c++-mode . flycheck-mode))
+;; (use-package flycheck
+;;   :custom
+;;   (flycheck-gcc-language-standard "c++14")
+;;   (flycheck-clang-language-standard "c++14")
+;;   :hook (c++-mode . flycheck-mode))
 
 ;; Tree-sitter setup
-(setq treesit-language-source-alist
-	     '(
-	       (bash "https://github.com/tree-sitter/tree-sitter-bash")
-	       (cmake "https://github.com/uyha/tree-sitter-cmake")
-	       (css "https://github.com/tree-sitter/tree-sitter-css")
-	       (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-	       (go "https://github.com/tree-sitter/tree-sitter-go")
-	       (html "https://github.com/tree-sitter/tree-sitter-html")
-	       (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-	       (json "https://github.com/tree-sitter/tree-sitter-json")
-	       (make "https://github.com/alemuller/tree-sitter-make")
-	       (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-	       (python "https://github.com/tree-sitter/tree-sitter-python")
-	       (toml "https://github.com/tree-sitter/tree-sitter-toml")
-	       (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-	       (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-	       (yaml "https://github.com/ikatyang/tree-sitter-yaml")
-	       ))
+;; (setq treesit-language-source-alist
+;; 	     '(
+;; 	       (bash "https://github.com/tree-sitter/tree-sitter-bash")
+;; 	       (cmake "https://github.com/uyha/tree-sitter-cmake")
+;; 	       (css "https://github.com/tree-sitter/tree-sitter-css")
+;; 	       (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+;; 	       (go "https://github.com/tree-sitter/tree-sitter-go")
+;; 	       (html "https://github.com/tree-sitter/tree-sitter-html")
+;; 	       (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+;; 	       (json "https://github.com/tree-sitter/tree-sitter-json")
+;; 	       (make "https://github.com/alemuller/tree-sitter-make")
+;; 	       (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+;; 	       (python "https://github.com/tree-sitter/tree-sitter-python")
+;; 	       (toml "https://github.com/tree-sitter/tree-sitter-toml")
+;; 	       (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+;; 	       (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+;; 	       (yaml "https://github.com/ikatyang/tree-sitter-yaml")
+;; 	       ))

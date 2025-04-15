@@ -36,10 +36,11 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-(use-package swiper
-  :bind
-  ("M-s s" . swiper)
-  ("M-s M-s" . swiper-thing-at-point))
+;;; Can be exchanged by consult-line
+;; (use-package swiper
+;;   :bind
+;;   ("M-s s" . swiper)
+;;   ("M-s M-s" . swiper-thing-at-point))
 
 (use-package which-key
   :defer t

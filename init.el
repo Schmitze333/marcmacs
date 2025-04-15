@@ -30,31 +30,33 @@
 			"defaults"
 			"macos"
 			"emacs_tweaks"
+			;; "clean-slate"
 			"appearence"
-			"custom_function"
+			;; "custom_function"
 			"completion_framework"
 			"control_n_feel"
-			"devops"
+			;; ;; "devops"
 			"shells"
-			"projects"
-			"git"
+			;; "projects"
+			;; "git"
 			"develop_foundation"
-			"ruby"
-			"front_end"
-			"cpp"
-			"go"
-			"groovy"
-			"python"
-			"rust"
-			"org"
-			"dashboard"
-			"elixir"
-			"tools"
-			"totp"
-			"elfeed"
-			"lilypond"
-			"supercollider"
-			"entertainment"
+			"gptel"
+			;; "ruby"
+			;; "front_end"
+			;; "cpp"
+			;; "go"
+			;; "groovy"
+			;; "python"
+			;; "rust"
+			;; "org"
+			;; "dashboard"
+			;; "elixir"
+			;; "tools"
+			;; "totp"
+			;; "elfeed"
+			;; "lilypond"
+			;; "supercollider"
+			;; "entertainment"
 			))
 
 (defun marcmacs--load-layer (layer-name)
@@ -64,8 +66,5 @@
 
 (dolist (layer marcmacs-layers)
   (marcmacs--load-layer layer))
-
-;; For some reason this has to be done here 🤷‍♂️
-(winner-mode 1)
 
 (provide 'init)

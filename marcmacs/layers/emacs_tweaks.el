@@ -21,8 +21,13 @@
   ("s-}" . #'enlarge-window)
 
   ;; tab usage
-  ("M-g M-t" . #'tab-next)
-  ("M-g M-b" . #'tab-previous)
+  ;; default are C-TAB, C-Shift-TAB
+  ;; ("M-g M-t" . #'tab-next)
+  ;; ("M-g M-b" . #'tab-previous)
+
+  ;; previous & next buffer
+  ("s-," . #'previous-buffer)
+  ("s-." . #'next-buffer)
 
   ;; text expansion
   ("s-/" . #'hippie-expand)
@@ -40,7 +45,7 @@
   :bind
   ("C-c h" . #'winner-undo)
   ("C-c l" . #'winner-redo))
-(winner-mode 1)
+(winner-mode)
 
 ;;; Dired
 (use-package dired

@@ -1,5 +1,16 @@
 ;;;; Completion Framework ;;;;
 
+;; (fido-vertical-mode)
+;; (define-key icomplete-fido-mode-map (kbd "C-l") #'icomplete-fido-ret)
+
+;; (use-package icomplete
+;;   :bind
+;;   ("s-i" . completion-at-point)
+;;   (:map icomplete-fido-mode-map
+;; 	("C-l" . icomplete-fido-ret))
+;;   :init
+;;   (fido-vertical-mode))
+
 ;;; Vertico
 (use-package vertico
   :defer t
@@ -19,12 +30,36 @@
 
 ;; Enable richer annotations using the Marginalia package
 (use-package marginalia
-  :after vertico
   ;; Either bind `marginalia-cycle` globally or only in the minibuffer
   :bind (:map minibuffer-local-map
 	 ("M-A" . marginalia-cycle))
   :init
   (marginalia-mode))
+
+(use-package project
+  :init
+  (defvar super-p-map (make-sparse-keymap)
+    "Keymap activated when pressing s-p.")
+  :custom
+  (project-mode-line t)
+  :bind-keymap
+  ("s-p" . project-prefix-map)
+  :bind
+  (:map project-prefix-map
+	("s-p". consult-project-buffer)
+	("v" . magit-project-status)
+	("s-g" . rg-project)))
+
+(use-package tab-bar
+  :init
+  (defvar super-l-map (make-sparse-keymap)
+    "Keymap activated when pressing s-l.")
+  :bind-keymap
+  ("s-l". super-l-map)
+  :bind
+  (:map super-l-map
+	("s-l" . tab-bar-switch-to-recent-tab)
+	("l" . tab-bar-switch-to-tab)))
 
 ;; Fuzzy completion
 (use-package orderless
@@ -80,7 +115,8 @@
 	 ("M-s g" . consult-grep)
 	 ("M-s G" . consult-git-grep)
 	 ("M-s r" . consult-ripgrep)
-	 ("M-s l" . consult-line)
+	 ("M-s s" . consult-line)
+	 ("M-s M-s" . consult-line)
 	 ("M-s L" . consult-line-multi)
 	 ("M-s k" . consult-keep-lines)
 	 ("M-s u" . consult-focus-lines)
